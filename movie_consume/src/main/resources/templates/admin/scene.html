@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{/fragment/common-fragment :: head(场次管理)}"></div>
+<body>
+<div class="wrapper">
+    <!--header-->
+    <div th:replace="~{/fragment/common-fragment :: admin}"></div>
+
+    <div class="search-wrapper">
+        <div class="container container--add">
+            <a href="/api/scenes/adminGetScene">添加场次</a>
+        </div>
+    </div>
+    <!-- Main content -->
+    <section class="container">
+        <div class="col-sm-12">
+            <h2 class="page-heading">SceneManagement</h2>
+
+            <!-- MovieService preview item -->
+            <div th:each="ascene:${adminScenes.list}" class="movie movie--preview movie--full release">
+                <div class="col-sm-9 col-md-10 col-lg-10 movie__about" style="height: 40px">
+                    <span class="movie__option wid">
+                        <input type="hidden" th:value="${ascene.id}" id="sceneId">
+                        <strong>场次编号: </strong><a th:text="${ascene.id}">USA</a>
+                    </span>
+                    <span class="movie__option wid">
+                        <strong>电影名称: </strong><a th:text="${ascene.movieName}">USA</a>
+                    </span>
+                    <span class="movie__option wid">
+                        <strong>电影价格: </strong><span
+                            th:text="${ascene.price}">November 1, 2013</span>
+                    </span>
+                    <span class="movie__option wid">
+                        <strong>座位总数: </strong><span
+                            th:text="${ascene.seatNum}">November 1, 2013</span>
+                    </span>
+                    <span class="movie__option wid">
+                        <strong>放映时间: </strong><span
+                            th:text="${ascene.showtime}">November 1, 2013</span>
+                    </span>
+
+                    <div class="movie__btns" th:name="${ascene.id}">
+                        <span id="delScene"  class="btn btn-md btn--warning" style="cursor: pointer;" >删除场次</span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end movie preview item -->
+
+            <div class="coloum-wrapper">
+                <div class="pagination paginatioon--full">
+                    <a th:if="${adminScenes.hasPreviousPage}" th:href="@{/api/scenes(page=${adminScenes.pageNum}-1)}"
+                       class="pagination__prev">prev</a>
+                    <!--/*@thymesVar id="pageNum" type="int"*/-->
+                    <a th:if="${adminScenes.hasNextPage}" th:href="@{/api/scenes(page=${adminScenes.pageNum}+1)}"
+                       class="pagination__next">next</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="clearfix"></div>
+    <!-- footer -->
+    <div th:insert="~{/fragment/common-fragment :: footer}"></div>
+</div>
+
+
+<!-- open/close -->
+<div th:replace="~{/fragment/common-fragment :: pop}"></div>
+
+<!-- JavaScript -->
+<div th:replace="~{/fragment/common-fragment :: script}"></div>
+</body>
+<style>
+    .wid{
+        padding-left: 20px;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        $(".movie__btns").click(function () {
+            var id = $(this).attr("name");
+            alert(id)
+            $.ajax({
+                url:"http://localhost:8111/api/scenes/delScene",
+                dataType:"json",
+                data:{"id":id},
+                success:function (data) {
+                    if(data.delScenceResult){
+                        window.location.href="/api/scenes";
+                    }else{
+                        alert("修改失败");
+                    }
+                }
+            })
+        })
+    })
+</script>
+</html>

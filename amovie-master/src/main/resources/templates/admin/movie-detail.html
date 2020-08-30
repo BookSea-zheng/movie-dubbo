@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<div th:replace="~{/fragment/common-fragment :: head(电影修改)}"></div>
+<body>
+<div class="wrapper">
+    <!--header-->
+    <div th:replace="~{/fragment/common-fragment :: admin}"></div>
+
+    <!-- Main content -->
+    <section class="container">
+        <div class="col-sm-12">
+            <h2 class="page-heading">MoviesManagement</h2>
+
+            <!-- MovieService preview item -->
+            <div class="movie movie--preview movie--full release">
+                <div class="col-sm-3 col-md-2 col-lg-2">
+                    <div class="movie__images">
+                        <img alt="" th:src="${adminMovies.poster}"/>
+                    </div>
+                </div>
+
+                <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
+                    <input type="hidden" id="adminMovieId" th:value="${adminMovies.id}">
+                    <input type="hidden" id="adminMoviePlot" th:value="${adminMovies.plot}">
+                    <input type="hidden" id="adminMoviePoster" th:value="${adminMovies.poster}">
+                    <input type="hidden" id="adminMovieStatus" th:value="${adminMovies.status}">
+                    <span class="bb"><strong>电影名称: </strong></span><input id="adminMovieName" type="text" style="text-align: left;border: black 1px solid" th:value="${adminMovies.name}" class=" link--huge"/>
+                    <br /><br />
+                    <span class="bb"><strong>放映时长: </strong></span><input id="adminMovieDuration" type="text" style="text-align: left;border: black 1px solid" class=" link--huge" th:value="${adminMovies.duration}" th:text="min" />
+                    <br /><br />
+                    <span class="bb"><strong>国家: </strong></span><input  id="adminMovieCountry" type="text" style="text-align: left;border: black 1px solid" th:value="${adminMovies.country}" class=" link--huge"/>
+                    <br /><br />
+                    <span class="bb"><strong>类型: </strong></span>
+                    <input  type="" style="text-align: left;border: black 1px solid" th:each="cate:${adminMovies.categories}"  th:value="${cate.name}+' '" class=" link--huge"/>
+                    <div style="display: none" id="adminMovieCategories" th:value="${adminMovies.categories}"></div>
+                    <br /><br />
+                    <span class="bb"><strong>放映时间: </strong></span><input id="adminMovieReleaseDate" type="text" style="text-align: left;border: black 1px solid" th:value="${#dates.format(adminMovies.releaseDate,'yyyy-MM-dd HH:mm:ss')}" class=" link--huge"/>
+                    <br /><br />
+                    <span class="bb"><strong>导演: </strong></span><input id="adminMovieDirectors" type="text" style="text-align: left;border: black 1px solid" th:value="${adminMovies.directors}" class=" link--huge"/>
+                    <br /><br />
+                    <span class="bb"><strong>演员: </strong></span><input id="adminMovieActors" type="text" style="text-align: left;border: black 1px solid" th:value="${adminMovies.actors}" class=" link--huge"/>
+                    <br /><br />
+                    <span class="aa" id="modify">修改</span>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+
+
+        </div>
+    </section>
+
+    <div class="clearfix"></div>
+
+</div>
+
+
+
+<!-- footer -->
+<div th:insert="~{/fragment/common-fragment :: footer}"></div>
+
+
+<!-- open/close -->
+<div th:replace="~{/fragment/common-fragment :: pop}"></div>
+
+<!-- JavaScript -->
+<div th:replace="~{/fragment/common-fragment :: script}"></div>
+
+<style>
+    .bb{
+        width: 125px;
+        height: 32px;
+        line-height: 32px;
+        display: inline-block;
+    }
+    .aa{
+        margin-left: 200px;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: black;
+        font-size: 20px;
+        background-color: #ffc936;
+        display: inline-block;
+        cursor: pointer;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        $("#modify").click(function () {
+            var aId=$("#adminMovieId").val();
+            var aName=$("#adminMovieName").val();
+            var aDuration=$("#adminMovieDuration").val();
+            var aCountry=$("#adminMovieCountry").val();
+            var aCategories=$("#adminMovieCategories").val();
+            var aReleaseDate=$("#adminMovieReleaseDate").val();
+            var aDirectors=$("#adminMovieDirectors").val();
+            var aActors=$("#adminMovieActors").val();
+            var aPlot=$("#adminMoviePlot").val();
+            var aPoster=$("#adminMoviePoster").val();
+            var aStatus=$("#adminMovieStatus").val();
+            var movie = new Object();
+            movie.id=aId;
+            movie.name=aName;
+            movie.duration=aDuration;
+            movie.directors=aDirectors;
+            movie.actors=aActors;
+            movie.releaseDate=aReleaseDate;
+            movie.categories=aCategories;
+            movie.status=aStatus;
+            movie.plot=aPlot;
+            movie.poster=aPoster;
+            movie.country=aCountry;
+            $.ajax({
+                url:"http://localhost:8111/api/movies/adminModifyMovie",
+                dataType:"json",
+                data:{"movie":JSON.stringify(movie)},
+                success:function (data) {
+                    if(data.adminModifyMovie){
+                        window.location.href="/api/movies/getAdminMovies.html";
+                    }else{
+                        alert("修改失败");
+                    }
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

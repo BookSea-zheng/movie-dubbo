@@ -1,0 +1,51 @@
+package com.etc.service.impl;
+
+
+import com.alibaba.dubbo.config.annotation.Service;
+import com.etc.dao.UserMapper;
+import com.etc.entity.User;
+import com.etc.service.UserService;
+import com.etc.utils.MD5Utils;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import java.util.List;
+
+
+@Service
+public class UserServiceImpl implements UserService {
+
+    @Autowired
+    private UserMapper userMapper;
+
+    @Override
+    public List<User> getUsers() {
+        return userMapper.getUsers();
+    }
+
+    @Override
+    public User getUserById(Integer id) {
+        return userMapper.getUserById(id);
+    }
+
+    @Override
+    public User getUserByEmail(String email) {
+        return userMapper.getUserByEmail(email);
+    }
+
+    @Override
+    public void saveUser(User user) {
+        userMapper.saveUser(user);
+    }
+
+    @Override
+    public Boolean login(String email, String password) {
+        User user = getUserByEmail(email);
+        String salt = user.getSalt();
+        String encryptPassword = MD5Utils.md5(password, salt);
+        return encryptPassword.equals(user.getPassword());
+    }
+    public int updUser(User user){
+        return userMapper.updUser(user);
+
+    }
+}

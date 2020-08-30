@@ -1,0 +1,45 @@
+server:
+  port: 7979
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/amovie?characterEncoding=utf-8&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  servlet:
+    multipart:
+      file-size-threshold: 1000MB
+
+logging:
+  level:
+    com.etc: debug
+  file:
+    path: ./logs/movies.log
+
+mybatis:
+  configuration:
+    cache-enabled: false
+    map-underscore-to-camel-case: true
+  mapper-locations: classpath:com/etc/mapper/*.xml
+  type-aliases-package: com.etc.entity
+
+
+filepath: D:\my_document\upload
+
+
+dubbo:
+  provider:
+    timeout: 60000
+  application:
+    name: dubbo-provider
+  registry:
+    protocol: zookeeper
+    address: 192.168.192.128:2181,192.168.192.128:2182,192.168.192.128:2183
+    id: registery-1
+    check: false
+  protocol:
+    port: 20880
+    name: dubbo
+    id: dubbo
+    status: server
+

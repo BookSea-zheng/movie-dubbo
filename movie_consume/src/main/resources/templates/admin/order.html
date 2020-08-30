@@ -1,0 +1,110 @@
+<!doctype html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{/fragment/common-fragment :: head(订单管理)}"></div>
+
+<body>
+<div class="wrapper place-wrapper">
+
+    <!-- Header section -->
+    <div th:replace="~{/fragment/common-fragment :: admin}"></div>
+
+    <!-- Main content -->
+    <section class="container">
+        <div class="order-container" th:each="order:${adminOrders.list}">
+            <div class="ticket">
+                <div class="ticket-position">
+                    <div class="ticket__inner">
+                        <div class="ticket-secondary">
+                            <span class="ticket__item">票号:<strong th:text="${order.ticketNum}"
+                                                                  class="ticket__number">a126bym4</strong></span>
+                            <span th:text="${#dates.format(order.createTime,'yyyy-MM-dd')}"
+                                  class="ticket__item ticket__date">25/10/2013</span>
+                            <span th:text="${order.showtime}" class="ticket__item ticket__time">17:45</span>
+                            <span class="ticket__item">影院:<span class="ticket__cinema">万达影城</span></span>
+                            <span class="ticket__item">影厅:<span class="ticket__hall">巨幕厅</span></span>
+                            <span class="ticket__item ticket__price">总价:<strong
+                                    th:text="'￥'+${order.totalPrice}" class="ticket__cost">$60</strong></span>
+                        </div>
+
+                        <div class="ticket-primery">
+                            <span class="ticket__item ticket__item--primery ticket__film">电影:<br><strong
+                                    th:text="${order.movieName}" class="ticket__movie">The Fifth Estate (2013)</strong></span>
+                            <span class="ticket__item ticket__item--primery">座位:<span th:text="' '+${order.seat}"
+                                                                                      class="ticket__place">11F, 12F, 13F</span></span>
+                        </div>
+                    </div>
+                    <div  class="movie__btns" style="display: inline-block;margin-top: 120px;">
+                        <input type="hidden"  id="getAdminOrderId">
+                       <a class="delOrder" th:name="${order.id}"><span  style="cursor: pointer" class="btn btn-md btn--warning" >删除订单</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!--<div class="ticket">
+                <div class="ticket-position">
+                    <div class="ticket__inner">
+                        <div class="ticket-secondary">
+                            <span class="ticket__item">Ticket number <strong
+                                    class="ticket__number">a126bym4</strong></span>
+                            <span class="ticket__item ticket__date">25/10/2013</span>
+                            <span class="ticket__item ticket__time">17:45</span>
+                            <span class="ticket__item">Cinema: <span class="ticket__cinema">Cineworld</span></span>
+                            <span class="ticket__item">Hall: <span class="ticket__hall">Visconti</span></span>
+                            <span class="ticket__item ticket__price">price:<strong
+                                    class="ticket__cost">$60</strong></span>
+                        </div>
+
+                        <div class="ticket-primery">
+                            <span class="ticket__item ticket__item&#45;&#45;primery ticket__film">Film<br><strong
+                                    class="ticket__movie">The Fifth Estate (2013)</strong></span>
+                            <span class="ticket__item ticket__item&#45;&#45;primery">Sits: <span class="ticket__place">11F, 12F, 13F</span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+
+        </div>
+        <div class="coloum-wrapper">
+            <div class="pagination paginatioon--full">
+                <a th:if="${adminOrders.hasPreviousPage}" th:href="@{/api/order(page=${adminOrders.pageNum}-1)}"
+                   class="pagination__prev">prev</a>
+                <!--/*@thymesVar id="pageNum" type="int"*/-->
+                <a th:if="${adminOrders.hasNextPage}" th:href="@{/api/order(page=${adminOrders.pageNum}+1)}"
+                   class="pagination__next">next</a>
+            </div>
+        </div>
+    </section>
+
+    <div th:replace="~{/fragment/common-fragment :: footer}"></div>
+</div>
+
+<!-- open/close -->
+<div th:replace="~{/fragment/common-fragment :: pop}"></div>
+
+<!-- JavaScript-->
+<div th:replace="~{/fragment/common-fragment :: script}"></div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $(".delOrder").click(function () {
+            var id = $(this).attr("name");
+            $.ajax({
+                url:"http://localhost:8111/api/order/adminDelOrder",
+                // dataType:"json",
+                data:{"id":id},
+                success:function (data) {
+                    if(data=="true"){
+                        window.location.reload();
+                    }else{
+                        alert("删除失败");
+                    }
+                },
+                error:function () {
+                    alert("失败")
+                }
+            })
+        })
+    })
+</script>
+</html>

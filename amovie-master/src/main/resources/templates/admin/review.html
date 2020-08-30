@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{/fragment/common-fragment :: head(评论管理)}"></div>
+<body>
+<div class="wrapper">
+    <!--header-->
+    <div th:replace="~{/fragment/common-fragment :: admin}"></div>
+
+    <!-- Main content -->
+    <section class="container">
+        <div class="col-sm-12">
+            <h2 class="page-heading">ReviewManagement</h2>
+
+            <!-- MovieService preview item -->
+            <div th:each="areview:${adminReviews.list}" class="movie movie--preview movie--full release">
+                <div class="col-sm-9 col-md-10 col-lg-10 movie__about" style="height: 40px">
+                    <span class="movie__option wid">
+                        <input type="hidden" th:value="${areview.id}" id="sceneId">
+                        <strong>评论编号: </strong><a th:text="${areview.id}">USA</a>
+                    </span>
+                    <span class="movie__option wid">
+                        <strong>评论内容: </strong><a th:text="${areview.content}">USA</a>
+                    </span>
+                    <span class="movie__option wid">
+                        <strong>评论电影: </strong><span
+                            th:text="${areview.name}">November 1, 2013</span>
+                    </span>
+                    <span class="movie__option wid">
+                        <strong>评论用户: </strong><span
+                            th:text="${areview.nickname}">November 1, 2013</span>
+                    </span>
+                    <span class="movie__option wid">
+                        <strong>评论时间: </strong><span
+                            th:text="${#dates.format(areview.createTime,'yyyy-MM-dd')}">November 1, 2013</span>
+                    </span>
+
+                    <div class="movie__btns" th:name="${areview.id}">
+                        <span id="delScene"  class="btn btn-md btn--warning" style="cursor: pointer;" >删除评论</span>
+                    </div>
+                </div>
+
+            </div>
+            <!-- end movie preview item -->
+
+            <div class="coloum-wrapper">
+                <div class="pagination paginatioon--full">
+                    <a th:if="${adminReviews.hasPreviousPage}" th:href="@{/api/review(page=${adminReviews.pageNum}-1)}"
+                       class="pagination__prev">prev</a>
+                    <!--/*@thymesVar id="pageNum" type="int"*/-->
+                    <a th:if="${adminReviews.hasNextPage}" th:href="@{/api/review(page=${adminReviews.pageNum}+1)}"
+                       class="pagination__next">next</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="clearfix"></div>
+    <!-- footer -->
+    <div th:insert="~{/fragment/common-fragment :: footer}"></div>
+</div>
+
+
+<!-- open/close -->
+<div th:replace="~{/fragment/common-fragment :: pop}"></div>
+
+<!-- JavaScript -->
+<div th:replace="~{/fragment/common-fragment :: script}"></div>
+</body>
+<style>
+    .wid{
+        padding-left: 20px;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        $(".movie__btns").click(function () {
+            var id = $(this).attr("name");
+            $.ajax({
+                url:"http://localhost:8111/api/review/adminDelReview",
+                data:{"id":id},
+                success:function (data) {
+                    if(data=="true"){
+                        window.location.reload();
+                    }else{
+                        alert("删除失败");
+                    }
+                }
+            })
+        })
+    })
+</script>
+</html>

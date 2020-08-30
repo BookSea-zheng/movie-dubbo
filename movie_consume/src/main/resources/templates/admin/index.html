@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{/fragment/common-fragment :: head(管理界面首页)}"></div>
+<body>
+<div class="wrapper">
+    <!--header-->
+    <div th:replace="~{/fragment/common-fragment :: admin}"></div>
+    <img src="../../images/welcome.jpg" style="height: 500px;padding-left: 500px">
+</div>
+
+<!-- footer -->
+<div th:replace="~{/fragment/common-fragment :: footer}"></div>
+
+<!-- open/close -->
+<div th:replace="~{/fragment/common-fragment :: pop}"></div>
+
+<!-- JavaScript -->
+<div th:replace="~{/fragment/common-fragment :: script}"></div>
+</body>
+</html>

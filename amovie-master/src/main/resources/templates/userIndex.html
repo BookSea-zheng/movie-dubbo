@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+
+<div th:replace="~{/fragment/common-fragment :: head(个人中心)}"></div>
+
+<body>
+<div class="wrapper">
+    <!-- Header section -->
+    <div th:replace="~{/fragment/common-fragment :: header}"></div>
+
+
+    <!-- Main content -->
+    <form id="update-form" class="login" method="post" novalidate="">
+        <p class="login__title">
+            个人中心 <br/><span class="login-edition">欢迎来到 A.Movie</span>
+        </p>
+
+        <div class="field-wrap">
+            昵称：<input
+                    type="nickname"
+                    th:value="${session.login.getNickname()}"
+                    name="nickname"
+                    class="login__input" />
+
+            性别：
+                <input
+                type="gender"
+                th:value="${session.login.gender}"
+                name="gender"
+                class="login__input"
+                readonly="readonly"
+                />
+
+            电话：<input
+                type="phone"
+                th:value="${session.login.phone}"
+                name="phone"
+                class="login__input"
+        />
+
+
+           邮箱： <input
+                    type="email"
+                    th:value="${session.login.email}"
+                    name="email"
+                    class="login__input"
+            />
+          密码： <input
+                    type="password"
+                    th:value="${session.login.password}"
+                    name="password"
+                    class="login__input"
+            />
+            确认密码： <input
+                type="repassword"
+                placeholder="请输入密码"
+                name="repassword"
+                class="login__input"
+        />
+
+        </div>
+
+        <div class="login__control">
+            <button type="submit" class="btn btn-md btn--warning btn--wider">
+                修改资料
+            </button>
+            <a href="#" class="login__tracker form__tracker">返回</a>
+        </div>
+    </form>
+
+
+    <div class="clearfix"></div>
+
+    <div th:insert="~{/fragment/common-fragment :: footer}"></div>
+</div>
+
+<!-- open/close -->
+<div th:replace="~{/fragment/common-fragment :: pop}"></div>
+<!-- JavaScript-->
+<div th:replace="~{/fragment/common-fragment :: script}"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        init_MovieList();
+    });
+
+</script>
+</body>
+</html>

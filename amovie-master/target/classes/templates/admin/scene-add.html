@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<div th:replace="~{/fragment/common-fragment :: head(场次添加)}"></div>
+<body>
+<div class="wrapper">
+    <!--header-->
+    <div th:replace="~{/fragment/common-fragment :: admin}"></div>
+
+    <!-- Main content -->
+    <section class="container">
+        <div class="col-sm-12">
+            <h2 class="page-heading">SceneAdd</h2>
+
+            <!-- MovieService preview item -->
+            <div class="movie movie--preview movie--full release">
+                <div class="col-sm-9 col-md-10 col-lg-10 movie__about">
+                    <span class="bb"><strong>场次电影: </strong></span>
+                    <select name="scenceMovie" id="scenceMovie" style="text-align: left;border: black 1px solid" class=" link--huge"></select>
+                    <br /><br />
+                    <span class="bb"><strong>场次价格: </strong></span><input id="adminScenePriceAdd" type="text" style="text-align: left;border: black 1px solid" class=" link--huge"  />
+                    <br /><br />
+                    <span class="bb"><strong>场次座位: </strong></span><input  id="adminSceneseatNumAdd" type="text" style="text-align: left;border: black 1px solid"  class=" link--huge"/>
+                    <br /><br />
+                    <span class="bb"><strong>场次放映时间: </strong></span><input id="adminSceneshowtimeAdd" type="text" style="text-align: left;border: black 1px solid" class=" link--huge"/>
+                    <br /><br />
+                    <span class="aa" id="addScene">添加</span>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </section>
+    <div class="clearfix"></div>
+</div>
+
+
+<!-- footer -->
+<div th:insert="~{/fragment/common-fragment :: footer}"></div>
+
+
+<!-- open/close -->
+<div th:replace="~{/fragment/common-fragment :: pop}"></div>
+
+<!-- JavaScript -->
+<div th:replace="~{/fragment/common-fragment :: script}"></div>
+
+<style>
+    .bb{
+        width: 125px;
+        height: 32px;
+        line-height: 32px;
+        display: inline-block;
+    }
+    .aa{
+        margin-left: 200px;
+        width: 100px;
+        height: 50px;
+        line-height: 50px;
+        text-align: center;
+        color: black;
+        font-size: 20px;
+        background-color: #ffc936;
+        display: inline-block;
+        cursor: pointer;
+    }
+</style>
+<script type="text/javascript">
+    $(function () {
+        var scenceMovie=$("#scenceMovie");
+        $.ajax({
+            type:"Get",//请求类型
+            url:"http://localhost:8111/api/movies/getAll",//请求的url
+            dataType:"json",//ajax接口（请求url）返回的数据类型
+            success:function(data){//data：返回数据（json对象）
+                if(data != null){
+                    scenceMovie.html("");
+                    var options = "<option value=\"0\">请选择</option>";
+                    for(var i = 0; i < data.length; i++){
+                        options +=`<option value="${data[i].id}" name="${data[i].name}">${data[i].name}</option>`;
+                    }
+                    scenceMovie.html(options);
+                }
+            }
+        });
+
+
+        var movieId;
+        var movieName;
+
+        $("#scenceMovie").change(function () {
+             movieId = $(this).val();
+             movieName = $("[value="+movieId+"]").attr("name");
+        });
+
+
+        $("#addScene").click(function () {
+            var price = $("#adminScenePriceAdd").val();
+            var seatNum = $("#adminSceneseatNumAdd").val();
+            var showtime = $("#adminSceneshowtimeAdd").val();
+            var scene = new Object();
+            scene.movieId=movieId;
+            scene.movieName=movieName;
+            scene.price=price;
+            scene.seatNum=seatNum;
+            scene.showtime=showtime;
+
+            $.ajax({
+                url:"http://localhost:8111/api/scenes/admimAddScene",
+                data:{scene:JSON.stringify(scene)},
+                success:function (data) {
+                    if(data==="true"){
+                        window.location.href="/api/scenes";
+                    }else{
+                        alert("添加失败");
+                    }
+                }
+            })
+        })
+    })
+</script>
+</body>
+</html>

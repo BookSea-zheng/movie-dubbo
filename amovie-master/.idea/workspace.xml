@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="912fd7d4-dd22-4dd8-b18c-6a7f0f4cd582" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="CSS File" />
+        <option value="HTML File" />
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="D:/maven/apache-maven-3.5.2" />
+        <option name="userSettingsFile" value="D:\maven\apache-maven-3.5.2\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1g4QbsRxOSEaxk4m5T291lX4vNS" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
+    <property name="nodejs.mocha.mocha_node_package_dir" value="" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\ideaProject\amovie-master\src\main\resources\templates" />
+      <recent name="D:\ideaProject\amovie-master\src\main\resources\static\images" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\ideaProject\amovie-master\src\main\resources" />
+      <recent name="D:\ideaProject\amovie-master\src\main\resources\templates" />
+      <recent name="D:\ideaProject\amovie-master\src\main\java\com\etc\amovie" />
+      <recent name="D:\ideaProject\amovie-master\src\main\java\com\etc\amovie\service\impl" />
+      <recent name="D:\ideaProject\amovie-master\src\main\java\com\etc\amovie\service" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AmovieApplication">
+    <configuration name="MD5Utils" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.wyx.amovie.utils.MD5Utils" />
+      <module name="amovie-master" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.wyx.amovie.utils.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AmovieApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="amovie-master" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.etc.amovie.AmovieApplication" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.MD5Utils" />
+      <item itemvalue="Spring Boot.AmovieApplication" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.MD5Utils" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="912fd7d4-dd22-4dd8-b18c-6a7f0f4cd582" name="Default Changelist" comment="" />
+      <created>1597371458767</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597371458767</updated>
+      <workItem from="1597371466787" duration="56000" />
+      <workItem from="1597371591050" duration="1236000" />
+      <workItem from="1597373118014" duration="625000" />
+      <workItem from="1597375653302" duration="1750000" />
+      <workItem from="1597384488132" duration="359000" />
+      <workItem from="1597621628848" duration="31338000" />
+      <workItem from="1597672288228" duration="7284000" />
+      <workItem from="1597679623918" duration="2413000" />
+      <workItem from="1597709423565" duration="10371000" />
+      <workItem from="1597720057303" duration="19904000" />
+      <workItem from="1597754039758" duration="11704000" />
+      <workItem from="1597795637350" duration="8409000" />
+      <workItem from="1597804929433" duration="5160000" />
+      <workItem from="1597814381046" duration="8236000" />
+      <workItem from="1597826212134" duration="321000" />
+      <workItem from="1597827505499" duration="360000" />
+      <workItem from="1597828373144" duration="27000" />
+      <workItem from="1597885100168" duration="903000" />
+      <workItem from="1597886196470" duration="2416000" />
+      <workItem from="1597894557260" duration="677000" />
+      <workItem from="1597897303979" duration="472000" />
+      <workItem from="1597898177133" duration="350000" />
+      <workItem from="1597904022229" duration="192000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="223" y="70" width="1141" height="733" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1597642972979">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="223" y="70" width="1141" height="733" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1597642972979" />
+    <state x="862" y="122" key="#com.intellij.ide.util.MemberChooser" timestamp="1597809314994">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="862" y="122" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1597809314994" />
+    <state x="908" y="240" key="#xdebugger.evaluate" timestamp="1597744002514">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="908" y="240" key="#xdebugger.evaluate/0.0.1536.824@0.0.1536.824" timestamp="1597744002514" />
+    <state x="549" y="113" key="FileChooserDialogImpl" timestamp="1597897774923">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="549" y="113" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1597897774923" />
+    <state width="1493" height="424" key="GridCell.Tab.0.bottom" timestamp="1597904229090">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597904229090" />
+    <state width="1493" height="424" key="GridCell.Tab.0.center" timestamp="1597904229090">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1597904229090" />
+    <state width="1493" height="424" key="GridCell.Tab.0.left" timestamp="1597904229090">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1597904229090" />
+    <state width="1493" height="424" key="GridCell.Tab.0.right" timestamp="1597904229090">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1597904229090" />
+    <state width="1493" height="424" key="GridCell.Tab.1.bottom" timestamp="1597904229091">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597904229091" />
+    <state width="1493" height="424" key="GridCell.Tab.1.center" timestamp="1597904229091">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1597904229091" />
+    <state width="1493" height="424" key="GridCell.Tab.1.left" timestamp="1597904229091">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1597904229091" />
+    <state width="1493" height="424" key="GridCell.Tab.1.right" timestamp="1597904229091">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1597904229091" />
+    <state width="1493" height="424" key="GridCell.Tab.2.bottom" timestamp="1597904229091">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.2.bottom/0.0.1536.824@0.0.1536.824" timestamp="1597904229091" />
+    <state width="1493" height="424" key="GridCell.Tab.2.center" timestamp="1597904229091">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.2.center/0.0.1536.824@0.0.1536.824" timestamp="1597904229091" />
+    <state width="1493" height="424" key="GridCell.Tab.2.left" timestamp="1597904229091">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.2.left/0.0.1536.824@0.0.1536.824" timestamp="1597904229091" />
+    <state width="1493" height="424" key="GridCell.Tab.2.right" timestamp="1597904229091">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="424" key="GridCell.Tab.2.right/0.0.1536.824@0.0.1536.824" timestamp="1597904229091" />
+    <state x="408" y="115" key="NewModule_or_Project.wizard" timestamp="1597827547498">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="408" y="115" key="NewModule_or_Project.wizard/0.0.1536.824@0.0.1536.824" timestamp="1597827547498" />
+    <state x="272" y="0" key="SettingsEditor" timestamp="1597722353877">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="272" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1597722353877" />
+    <state x="321" y="151" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2" timestamp="1597735898871">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="321" y="151" key="com.intellij.xdebugger.impl.breakpoints.ui.BreakpointsDialogFactory$2/0.0.1536.824@0.0.1536.824" timestamp="1597735898871" />
+    <state x="241" y="66" width="1180" height="586" key="new project wizard" timestamp="1597797028133">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="241" y="66" width="1180" height="586" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1597797028133" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/src/main/resources/templates/admin/scene-add.html</url>
+          <line>108</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/etc/amovie/controller/admin/AdminUploadController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/etc/amovie/controller/admin/AdminMovieController.java</url>
+          <line>108</line>
+          <option name="timeStamp" value="22" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/etc/amovie/controller/admin/AdminUploadController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/etc/amovie/controller/admin/AdminUploadController.java</url>
+          <line>49</line>
+          <option name="timeStamp" value="32" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/etc/amovie/controller/admin/AdminUploadController.java</url>
+          <line>54</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/etc/amovie/controller/PageController.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="35" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/com/etc/amovie/controller/PageController.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>

@@ -1,0 +1,26 @@
+server:
+  port: 8111
+thymeleaf:
+  prefix: classpath:/templates/
+  suffix: .html
+  cache: false
+
+pagehelper:
+  reasonable: true
+
+loggin:
+  level:
+    com.etc: debug
+  file:
+    path: ./logs/movies.log
+
+filepath: D:\my_document\upload
+
+dubbo:
+  application:
+    name: dubbo-consume
+  registry:
+    protocol: zookeeper
+    address: 192.168.192.128:2181,192.168.192.128:2182,192.168.192.128:2183
+    id: registery-1
+

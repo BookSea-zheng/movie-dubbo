@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<!-- head -->
+<div th:replace="~{/fragment/common-fragment :: head(注册)}"></div>
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+    $(function(){
+        $("#core1").click(function(){
+            var count = 60;
+            var d = $("#core").val();
+            var countdown = setInterval(CountDown, 1000);
+            $.ajax({
+                url : "/core",　　　　//传地址
+                type : "post",　　　　//类型
+                async : "true",　　　　//是否异步
+                data : {"phoneNumber": d},　　//数据
+            });
+
+            function CountDown() {
+                $("#core1").attr("disabled", true);
+                $("#core1").val("重新发送(" + count + ")");
+                if (count == 0) {
+                    $("#core1").val("获取验证码").removeAttr("disabled");
+                    clearInterval(countdown);
+                }
+                count--;
+
+            }
+
+
+
+
+        })
+    })
+</script>
+<body>
+<div class="wrapper">
+    <!-- Header section -->
+    <div th:replace="~{/fragment/common-fragment :: header}"></div>
+
+    <!-- Main content -->
+    <form id="register-form" class="login" method="post" novalidate="">
+        <p class="login__title">
+            注册 <br/><span class="login-edition">欢迎来到 A.Movie</span>
+        </p>
+
+        <div class="field-wrap">
+            <input
+                    type="text"
+                    placeholder="昵称"
+                    name="nickname"
+                    class="login__input"
+            />
+            <input
+                    type="email"
+                    placeholder="邮箱"
+                    name="email"
+                    class="login__input"
+            />
+            <input
+                    type="password"
+                    placeholder="密码"
+                    name="password"
+                    class="login__input"
+
+            />
+            <input
+                    type="text"
+                    placeholder="电话"
+                    name="phone"
+                    id="core"
+                    class="login__input"
+                    style="width: 68%"
+            />
+            <input type="button" id="core1" value="获取验证码" style="height: 33px;color: red"/>
+            <input
+                    name="yzm"
+                    type="text"
+                    placeholder="请输入验证码"
+                    class="login__input"
+            />
+            <br/>
+            <span class="checkbox-inline">
+                <input type="radio" name="gender" id="sex1"
+                       value="0" checked style="margin-left: 40%;margin-bottom: 5%;margin-top: 5%">男
+            </span>
+            <span style="margin-left: 15px" class="checkbox-inline">
+                <input type="radio" name="gender" id="sex2"
+                       value="1">女
+            </span>
+        </div>
+
+        <div class="login__control">
+            <button type="submit" class="btn btn-md btn--warning btn--wider">
+                注册
+            </button>
+            <a href="/" class="login__tracker form__tracker">去登录</a>
+        </div>
+    </form>
+
+    <div class="clearfix"></div>
+</div>
+
+<div th:replace="~{/fragment/common-fragment :: footer}"></div>
+
+<!-- open/close -->
+<div th:replace="~{/fragment/common-fragment :: pop}"></div>
+
+<!-- JavaScript-->
+<div th:replace="~{/fragment/common-fragment :: script}"></div>
+</body>
+</html>

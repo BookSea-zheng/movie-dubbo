@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--suppress ALL-->
+<html xmlns:th="http://www.thymeleaf.org">
+<div th:replace="~{/fragment/common-fragment :: head(评分)}"></div>
+
+<body>
+<div class="wrapper">
+    <!-- Header section -->
+    <div th:replace="~{/fragment/common-fragment :: header}"></div>
+
+    <!-- Main content -->
+    <section class="container">
+        <div class="col-sm-12">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h2 class="page-heading">评分</h2>
+
+                    <div class="rates-wrapper rates--full">
+                        <table>
+                            <colgroup class="col-width-lg"></colgroup>
+                            <colgroup class="col-width"></colgroup>
+                            <colgroup class="col-width-sm"></colgroup>
+                            <colgroup class="col-width"></colgroup>
+
+                            <tr th:each="movie,rate:${movies.list}"
+                                th:class="(${rate.index+1}+(${movies.pageNum}-1)*${movies.pageSize})<4?'rates rates--top':'rates'">
+                                <td class="rates__obj">
+                                    <a th:href="'/movie/'+${movie.id}"
+                                       th:text="${rate.index+1}+(${movies.pageNum}-1)*${movies.pageSize}+' '+${movie.name}"
+                                       class="rates__obj-name"
+                                    >1. Thor: The Dark World</a
+                                    >
+                                </td>
+                                <td th:text="${movie.count}+ ' 个评分'" class="rates__vote">233 546 评分</td>
+                                <td th:text="${movie.score}" class="rates__result">5.0</td>
+                                <td class="rates__stars">
+                                    <div class="score"></div>
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+
+                    <div class="pagination paginatioon--full coloum-wrapper">
+                        <a th:if="${movies.hasPreviousPage}" th:href="@{/rate(page=${movies.pageNum}-1)}"
+                           class="pagination__prev">prev</a>
+                        <a th:if="${movies.hasNextPage}" th:href="@{/rate(page=${movies.pageNum}+1)}"
+                           class="pagination__next">next</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="clearfix"></div>
+
+    <!-- footer -->
+    <div th:replace="~{/fragment/common-fragment :: footer}"></div>
+</div>
+
+<!-- open/close -->
+<div th:replace="~{/fragment/common-fragment :: pop}"></div>
+
+<!-- JavaScript-->
+<div th:replace="~{/fragment/common-fragment :: script}"></div>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        init_Rates();
+    });
+</script>
+</body>
+</html>
